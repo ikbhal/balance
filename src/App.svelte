@@ -1,30 +1,56 @@
 <script>
-	export let name;
+class Section {
+	constructor(name, color, sections=[]){
+		this.name = name;
+		this.color = color;
+		this.sections = sections;
+	}
+}
+let sections = [
+	new Section("spirituality", "#aaa", ["Iman", "Namaz", "Ramzaan", "Zakat", "Haz"]),
+	new Section("health","#bbb", ["toilet", "drink water", "healthy food", "bath", "exercise"]),
+	new Section("family", "#ccc", ["parents", "wife", "kids", "friends", "relatives"]),
+	new Section("work", "#ddd", ["Job", "business", "investment"]),
+	new Section("society", "#eee", ["sadkah", "teach kids", "youtube video"])
+];
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h2>Balance</h2>
+	<p>Balance spirituality, health, family, career, society</p>
+
+
+	<div class="row">
+		{#each sections as section}
+			<div class="column" style="background-color:{section.color};">
+				<h2>{section.name}</h2>
+				<ul>
+					{#each section.sections as sec}
+					<li>{sec}</li>
+					{/each}
+				</ul>
+			</div>
+		{/each}
+	</div>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
+* {
+  box-sizing: border-box;
+}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 </style>
