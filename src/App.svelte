@@ -7,10 +7,10 @@ class Section {
 	}
 }
 let sections = [
+	new Section("work", "#ddd", ["Job", "business", "investment"]),
+	new Section("family", "#ccc", ["parents", "wife", "kids", "friends", "relatives"]),
 	new Section("spirituality", "#aaa", ["Iman", "Namaz", "Ramzaan", "Zakat", "Haz"]),
 	new Section("health","#bbb", ["toilet", "drink water", "healthy food", "bath", "exercise"]),
-	new Section("family", "#ccc", ["parents", "wife", "kids", "friends", "relatives"]),
-	new Section("work", "#ddd", ["Job", "business", "investment"]),
 	new Section("society", "#eee", ["sadkah", "teach kids", "youtube video"])
 ];
 </script>
